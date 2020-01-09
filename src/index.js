@@ -23,7 +23,20 @@ app.get('/user/:id', (req, res) => {
     res.json(getUser);
 });
 
+app.delete('/user/:id', (req, res) => {
 
+    if(usersList.length > 0){
+        usersList = [];
+        res.status(202).json({
+            ok: true
+        })
+    } else {
+        res.status(204).json({
+            ok: true
+        })
+    }
+
+});
 
 
 app.listen(3000, () => {
